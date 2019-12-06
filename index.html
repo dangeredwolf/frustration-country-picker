@@ -1,0 +1,380 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+				 
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		<script>
+
+		// list of countries
+
+		let countries = [
+			"Afghanistan",
+			"Akrotiri",
+			"Albania",
+			"Algeria",
+			"American Samoa",
+			"Andorra",
+			"Angola",
+			"Anguilla",
+			"Antarctica",
+			"Antigua and Barbuda",
+			"Argentina",
+			"Armenia",
+			"Aruba",
+			"Ashmore and Cartier Islands",
+			"Australia",
+			"Austria",
+			"Azerbaijan",
+			"The Bahamas",
+			"Bahrain",
+			"Bangladesh",
+			"Barbados",
+			"Bassas da India",
+			"Belarus",
+			"Belgium",
+			"Belize",
+			"Benin",
+			"Bermuda",
+			"Bhutan",
+			"Bolivia",
+			"Bosnia and Herzegovina",
+			"Botswana",
+			"Bouvet Island",
+			"Brazil",
+			"British Indian Ocean Territory",
+			"British Virgin Islands",
+			"Brunei",
+			"Bulgaria",
+			"Burkina Faso",
+			"Burma",
+			"Burundi",
+			"Cambodia",
+			"Cameroon",
+			"Canada",
+			"Cape Verde",
+			"Cayman Islands",
+			"Central African Republic",
+			"Chad",
+			"Chile",
+			"China",
+			"Christmas Island",
+			"Clipperton Island",
+			"Cocos (Keeling) Islands",
+			"Colombia",
+			"Comoros",
+			"Democratic Republic of the Congo",
+			"Republic of the Congo",
+			"Cook Islands",
+			"Coral Sea Islands",
+			"Costa Rica",
+			"Cote d'Ivoire",
+			"Croatia",
+			"Cuba",
+			"Cyprus",
+			"Czech Republic",
+			"Denmark",
+			"Dhekelia",
+			"Djibouti",
+			"Dominica",
+			"Dominican Republic",
+			"Ecuador",
+			"Egypt",
+			"El Salvador",
+			"Equatorial Guinea",
+			"Eritrea",
+			"Estonia",
+			"Ethiopia",
+			"Europa Island",
+			"Falkland Islands",
+			"Faroe Islands",
+			"Fiji",
+			"Finland",
+			"France",
+			"French Guiana",
+			"French Polynesia",
+			"French Southern and Antarctic Lands",
+			"Gabon",
+			"Gambia, The",
+			"Gaza Strip",
+			"Georgia",
+			"Germany",
+			"Ghana",
+			"Gibraltar",
+			"Glorioso Islands",
+			"Greece",
+			"Greenland",
+			"Grenada",
+			"Guadeloupe",
+			"Guam",
+			"Guatemala",
+			"Guernsey",
+			"Guinea",
+			"Guinea-Bissau",
+			"Guyana",
+			"Haiti",
+			"Heard Island and McDonald Islands",
+			"Honduras",
+			"Hong Kong",
+			"Hungary",
+			"Iceland",
+			"India",
+			"Indonesia",
+			"Iran",
+			"Iraq",
+			"Ireland",
+			"Isle of Man",
+			"Israel",
+			"Italy",
+			"Jamaica",
+			"Jan Mayen",
+			"Japan",
+			"Jersey",
+			"Jordan",
+			"Juan de Nova Island",
+			"Kazakhstan",
+			"Kenya",
+			"Kiribati",
+			"North Korea",
+			"South Korea",
+			"Kuwait",
+			"Kyrgyzstan",
+			"Laos",
+			"Latvia",
+			"Lebanon",
+			"Lesotho",
+			"Liberia",
+			"Libya",
+			"Liechtenstein",
+			"Lithuania",
+			"Luxembourg",
+			"Macau",
+			"Macedonia",
+			"Madagascar",
+			"Malawi",
+			"Malaysia",
+			"Maldives",
+			"Mali",
+			"Malta",
+			"Marshall Islands",
+			"Martinique",
+			"Mauritania",
+			"Mauritius",
+			"Mayotte",
+			"Mexico",
+			"Federated States of Micronesia",
+			"Moldova",
+			"Monaco",
+			"Mongolia",
+			"Montserrat",
+			"Morocco",
+			"Mozambique",
+			"Namibia",
+			"Nauru",
+			"Navassa Island",
+			"Nepal",
+			"Netherlands",
+			"Netherlands Antilles",
+			"New Caledonia",
+			"New Zealand",
+			"Nicaragua",
+			"Niger",
+			"Nigeria",
+			"Niue",
+			"Norfolk Island",
+			"Northern Mariana Islands",
+			"Norway",
+			"Oman",
+			"Pakistan",
+			"Palau",
+			"Panama",
+			"Papua New Guinea",
+			"Paracel Islands",
+			"Paraguay",
+			"Peru",
+			"Philippines",
+			"Pitcairn Islands",
+			"Poland",
+			"Portugal",
+			"Puerto Rico",
+			"Qatar",
+			"Reunion",
+			"Romania",
+			"Russia",
+			"Rwanda",
+			"Saint Helena",
+			"Saint Kitts and Nevis",
+			"Saint Lucia",
+			"Saint Pierre and Miquelon",
+			"Saint Vincent and the Grenadines",
+			"Samoa",
+			"San Marino",
+			"Sao Tome and Principe",
+			"Saudi Arabia",
+			"Senegal",
+			"Serbia and Montenegro",
+			"Seychelles",
+			"Sierra Leone",
+			"Singapore",
+			"Slovakia",
+			"Slovenia",
+			"Solomon Islands",
+			"Somalia",
+			"South Africa",
+			"South Georgia",
+			"Spain",
+			"Spratly Islands",
+			"Sri Lanka",
+			"Sudan",
+			"Suriname",
+			"Svalbard",
+			"Swaziland",
+			"Sweden",
+			"Switzerland",
+			"Syria",
+			"Taiwan",
+			"Tajikistan",
+			"Tanzania",
+			"Thailand",
+			"Timor-Leste",
+			"Togo",
+			"Tokelau",
+			"Tonga",
+			"Trinidad and Tobago",
+			"Tromelin Island",
+			"Tunisia",
+			"Turkey",
+			"Turkmenistan",
+			"Turks and Caicos",
+			"Tuvalu",
+			"Uganda",
+			"Ukraine",
+			"United Arab Emirates",
+			"United Kingdom",
+			"United States",
+			"Uruguay",
+			"Uzbekistan",
+			"Vanuatu",
+			"Vatican City",
+			"Venezuela",
+			"Vietnam",
+			"Virgin Islands",
+			"Wake Island",
+			"Wallis and Futuna",
+			"West Bank",
+			"Western Sahara",
+			"Yemen",
+			"Zambia",
+			"Zimbabwe"
+		];
+
+		// simple function that creates an element in jQuery faster
+
+		const make = function(a) {
+			return $(document.createElement(a));
+		}
+
+		// https://stackoverflow.com/a/2450976/
+
+		function shuffle(array) {
+		  var currentIndex = array.length, temporaryValue, randomIndex;
+
+		  // While there remain elements to shuffle...
+			while (0 !== currentIndex) {
+
+				// Pick a remaining element...
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex -= 1;
+
+				// And swap it with the current element.
+				temporaryValue = array[currentIndex];
+				array[currentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+
+			return array;
+		}
+
+		document.addEventListener('DOMContentLoaded', function() {
+
+			countries = shuffle(countries);
+
+			countries.forEach(
+				(a, i) => $("#country").append(
+					make("option")
+					.attr("value", i)
+					.text(a)
+				)
+			)
+
+			var elems = document.querySelectorAll('select');
+			var instances = M.FormSelect.init(elems, {});
+		});
+
+		</script>
+
+		<style>
+			.dropdown-content li>a, .dropdown-content li>span {
+				color:#333!important;
+			}
+
+			.select-dropdown li.disabled, .select-dropdown li.disabled>span, .select-dropdown li.optgroup {
+				color:rgba(0,0,0,0.3)!important;
+			}
+
+			form {
+				margin-top:50px;
+				max-width:500px;
+				width:100%;
+				left:50%!important;
+				margin-left:-250px!important;
+				position:absolute;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		
+	<div class="row">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Placeholder" id="first_name" type="text" class="validate">
+					<label for="first_name">First Name</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="last_name" type="text" class="validate">
+					<label for="last_name">Last Name</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="password" type="password" class="validate">
+					<label for="password">Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="email" type="email" class="validate">
+					<label for="email">Email</label>
+				</div>
+			</div>
+			<div class="input-field col s12">
+			<select id="country">
+				<option value="" disabled selected>Select a country...</option>
+			</select>
+			<label>Country</label>
+			</div>
+		<label>
+			<input type="checkbox" class="filled-in" checked="checked" />
+			<span>I do not agree with the <a href="#">Terms and Conditions</a></span>
+		</label>
+		</form>
+	</div>
+	</body>
+</html>
