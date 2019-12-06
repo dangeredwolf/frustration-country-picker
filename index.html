@@ -299,9 +299,19 @@
 			return array;
 		}
 
-		document.addEventListener('DOMContentLoaded', function() {
+		function addCountries() {
 
 			countries = shuffle(countries);
+
+			$("#country").empty();
+
+			$("#country").append(
+				make("option")
+					.attr("value", "")
+					.text("Select a country...")
+					.attr("disabled","true")
+					.attr("selected","true")
+			)
 
 			countries.forEach(
 				(a, i) => $("#country").append(
@@ -311,8 +321,15 @@
 				)
 			)
 
-			var elems = document.querySelectorAll('select');
-			var instances = M.FormSelect.init(elems, {});
+			// init materialize <select>
+			M.FormSelect.init(document.querySelectorAll('select'), {});
+
+		}
+
+		document.addEventListener('DOMContentLoaded', function() {
+
+			addCountries();
+			// $(".dropdown-trigger").click(addCountries);
 		});
 
 		</script>
